@@ -1,13 +1,9 @@
 pragma solidity 0.6.12;
 
 /*
- * ApeSwapFinance 
- * App:             https://apeswap.finance
- * Medium:          https://ape-swap.medium.com    
- * Twitter:         https://twitter.com/ape_swap 
- * Telegram:        https://t.me/ape_swap
- * Announcements:   https://t.me/ape_swap_news
- * GitHub:          https://github.com/ApeSwapFinance
+ * AnimalSwapFinance 
+ * App:             https://animalswap.paw.digital
+ * GitHub:          https://github.com/wrappedpaw
  */
 
 import '@pancakeswap/pancake-swap-lib/contracts/math/SafeMath.sol';
@@ -16,7 +12,7 @@ import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol';
 import '@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol';
 
 
-contract BEP20RewardApe is Ownable {
+contract BEP20RewardAnimal is Ownable {
     using SafeMath for uint256;
     using SafeBEP20 for IBEP20;
 

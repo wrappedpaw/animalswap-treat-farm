@@ -27,7 +27,7 @@
         "bonusEndBlock": 5804050
     },
     {
-        "name": "NUTS/BANANA LP -> NUTS Reward Pool",
+        "name": "NUTS/TREAT LP -> NUTS Reward Pool",
         "address": "0x3523cE00C9f82FfafC850C0Acccb78341239028b",
         "stakeToken": "0x44Baf117d79D5313BeA1fBBA416E4067436E4bBE",
         "rewardToken": "0x8893D5fA71389673C5c4b9b3cb4EE1ba71207556",
@@ -36,7 +36,7 @@
         "bonusEndBlock": 5658203
     },
     {
-        "name": "NUTS/BANANA LP -> BANANA Reward Pool",
+        "name": "NUTS/TREAT LP -> TREAT Reward Pool",
         "address": "0xdb28A11Fe950C9979A8050E6cBA76D187D5C3b70",
         "stakeToken": "0x44Baf117d79D5313BeA1fBBA416E4067436E4bBE",
         "rewardToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
@@ -45,7 +45,7 @@
         "bonusEndBlock": 5687003
     },
     {
-        "name": "CRX/BANANA LP -> CRX Reward Pool",
+        "name": "CRX/TREAT LP -> CRX Reward Pool",
         "address": "0x084beaa501dB448869001BA49913c9aD009b1694",
         "stakeToken": "0xbD896f59BAf9A624A7587DE5D28B7aD3459342bA",
         "rewardToken": "0x97a30C692eCe9C317235d48287d23d358170FC40",
@@ -63,7 +63,7 @@
         "bonusEndBlock": 6584710
     },
     {
-        "name": "NUTS/BANANA LP -> NUTZ Reward Pool",
+        "name": "NUTS/TREAT LP -> NUTZ Reward Pool",
         "address": "0x6Fd37f3F83F11100f9f501e2690E96F6fAC37E94",
         "stakeToken": "0x44Baf117d79D5313BeA1fBBA416E4067436E4bBE",
         "rewardToken": "0x8893D5fA71389673C5c4b9b3cb4EE1ba71207556",
@@ -72,7 +72,7 @@
         "bonusEndBlock": 5946127
     },
     {
-        "name": "HPS/BANANA LP -> HPS Reward Pool",
+        "name": "HPS/TREAT LP -> HPS Reward Pool",
         "address": "0x9c64Cec2Ad86E918929665cF9AADf91cd755fEf1",
         "stakeToken": "0x268f002A3B8d2faC2aA2bA6D4B90d519ca0d1d46",
         "rewardToken": "0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D",
@@ -81,7 +81,7 @@
         "bonusEndBlock": 6253534
     },
     {
-        "name": "BRICK/BANANA LP -> BRICK Reward Pool",
+        "name": "BRICK/TREAT LP -> BRICK Reward Pool",
         "address": "0x6B7254AdfCa2178B7065b4B57fDc452c405DFC8A",
         "stakeToken": "0x51A9771708d0471A0E592e8feBB2C6b868e3d99B",
         "rewardToken": "0xc4DaA5a9f2B832eD0f9Bc579662883cD53EA9d61",
@@ -99,7 +99,7 @@
         "bonusEndBlock": "11390295"
     },
     {
-        "name": "BANANA -> JDI Reward Pool",
+        "name": "TREAT -> JDI Reward Pool",
         "address": "0x72C8750af0744282E065F0dF3F73460A3764c624",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0x0491648C910ad2c1aFaab733faF71D30313Df7FC",
@@ -108,7 +108,7 @@
         "bonusEndBlock": "9860695"
     },
     {
-        "name": "(deprecated) BANANA -> Foxy Reward Pool",
+        "name": "(deprecated) TREAT -> Foxy Reward Pool",
         "address": "0x4cB75836d3254F7454D1Bf6D95448C496cbC16b1",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0x4354a4F710182966E55EA30CFa807FA1b821a67b",
@@ -117,7 +117,7 @@
         "bonusEndBlock": "7210011"
     },
     {
-        "name": "BANANA -> Foxy Reward Pool",
+        "name": "TREAT -> Foxy Reward Pool",
         "address": "0x726d5A4D170425C98BAff117BF3d9aF9f77f80bd",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0x4354a4F710182966E55EA30CFa807FA1b821a67b",
@@ -126,7 +126,7 @@
         "bonusEndBlock": "7212011"
     },
     {
-        "name": "BANANA -> Lyptus Reward Pool",
+        "name": "TREAT -> Lyptus Reward Pool",
         "address": "0x1900f5370830F0aa46DF76a6a4F0656Ef321b9f8",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0xBA26397cdFF25F0D26E815d218Ef3C77609ae7f1",
@@ -135,7 +135,7 @@
         "bonusEndBlock": "7291200"
     },
     {
-        "name": "BANANA -> Swap Reward Pool",
+        "name": "TREAT -> Swap Reward Pool",
         "address": "0xA007a5a8165D70DdFBC230927Cd639163228Fc72",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
@@ -153,7 +153,7 @@
         "bonusEndBlock": "7061628"
     },
     {
-        "name": "BANANA -> ALLOY Reward Pool",
+        "name": "TREAT -> ALLOY Reward Pool",
         "address": "0x834534853bff9C97F8A9b0fb9FFF864E3584Df99",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0x5eF5994fA33FF4eB6c82d51ee1DC145c546065Bd",
@@ -162,7 +162,7 @@
         "bonusEndBlock": "8435400"
     },
     {
-        "name": "BANANA -> ONT Reward Pool",
+        "name": "TREAT -> ONT Reward Pool",
         "address": "0x8e6f61f855a7483E29c8E87BF221C73e10b49738",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0xFd7B3A77848f1C2D67E05E54d78d174a0C850335",
@@ -171,7 +171,7 @@
         "bonusEndBlock": "9364125"
     },
     {
-        "name": "BANANA -> NAUT Reward Pool",
+        "name": "TREAT -> NAUT Reward Pool",
         "address": "0xDC0913b2bf505E03794f0A68a0DbBa333D8e0E01",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0x05B339B0A346bF01f851ddE47a5d485c34FE220c",
@@ -180,7 +180,7 @@
         "bonusEndBlock": "9336393"
     },
     {
-        "name": "GNANA -> BANANA Reward Pool",
+        "name": "GNANA -> TREAT Reward Pool",
         "address": "0x8F97B2E6559084CFaBA140e2AB4Da9aAF23FE7F8",
         "stakeToken": "0xdDb3Bd8645775F59496c821E4F55A7eA6A6dc299",
         "rewardToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
@@ -189,7 +189,7 @@
         "bonusEndBlock": "8498043"
     },
     {
-        "name": "BANANA -> NFTL Reward Pool",
+        "name": "TREAT -> NFTL Reward Pool",
         "address": "0x7618c42Fb5DC96F3C238FEC799B440AEd7c56E03",
         "stakeToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
         "rewardToken": "0xE5904E9816b309d3eD4d061c922f5aa8f3B24C92",
@@ -260,7 +260,7 @@
         "bonusEndBlock": "9177750"
     },
     {
-        "name": "BANANA -> bxBTC",
+        "name": "TREAT -> bxBTC",
         "address": "0xd65f1319f6408C03EBA7f27e156391784492A9EF",
         "stakeToken": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
         "rewardToken": "0xab111d5948470ba73d98d66bbdf2798fbe093546",
@@ -278,7 +278,7 @@
         "bonusEndBlock": "9810116"
     },
     {
-        "name": "BANANA -> WATCH",
+        "name": "TREAT -> WATCH",
         "address": "0x465a3782d9014e6eefccc21470c5e41b2cad9d6d",
         "stakeToken": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
         "rewardToken": "0x7a9f28eb62c791422aa23ceae1da9c847cbec9b0",
@@ -296,7 +296,7 @@
         "bonusEndBlock": "8601030"
     },
     {
-        "name": "BANANA -> BFT",
+        "name": "TREAT -> BFT",
         "address": "0x73775564d2cbad604c41d0b3ddf061e80e1d0279",
         "stakeToken": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
         "rewardToken": "0xa4f93159ce0a4b533b443c74b89967c60a5969f8",
@@ -404,7 +404,7 @@
         "bonusEndBlock": "9193545"
     },
     {
-        "name": "BANANA -> FOXY",
+        "name": "TREAT -> FOXY",
         "address": "0x6D5A4371B0B658765D5282Ae64eFaf9e6f9A4600",
         "stakeToken": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
         "rewardToken": "0x4354a4f710182966e55ea30cfa807fa1b821a67b", 
@@ -413,7 +413,7 @@
         "bonusEndBlock": "9214940"
     },
     {
-        "name": "BANANA -> MBOX",
+        "name": "TREAT -> MBOX",
         "address": "0x19383690321291Cb00dE31DdEC94f4596d504f5A",
         "stakeToken": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
         "rewardToken": "0x3203c9e46ca618c8c1ce5dc67e7e9d75f5da2377", 
@@ -422,7 +422,7 @@
         "bonusEndBlock": "10089077"
     },
     {
-        "name": "BANANA -> WYVERN",
+        "name": "TREAT -> WYVERN",
         "address": "0x33a8CE49cFBdeF61e5E494f769b5626d395a56f3",
         "stakeToken": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
         "rewardToken": "0x470862af0cf8d27ebfe0ff77b0649779c29186db", 

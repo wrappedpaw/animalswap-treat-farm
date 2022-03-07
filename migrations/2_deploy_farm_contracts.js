@@ -1,9 +1,9 @@
 const { BigNumber } = require("@ethersproject/bignumber");
 const { getNetworkConfig } = require('../deploy-config')
-const MasterApe = artifacts.require("MasterApe");
-const SupportApe = artifacts.require("SupportApe");
-const BananaToken = artifacts.require("BananaToken");
-const BananaSplitBar = artifacts.require("BananaSplitBar");
+const MasterAnimal = artifacts.require("MasterAnimal");
+const SupportAnimal = artifacts.require("SupportAnimal");
+const TreatToken = artifacts.require("TreatToken");
+const TreatSplitBar = artifacts.require("TreatSplitBar");
 const MultiCall = artifacts.require("MultiCall");
 const Timelock = artifacts.require("Timelock");
 
@@ -18,57 +18,57 @@ module.exports = async function (deployer, network, accounts) {
     const REWARDS_START = String(STARTING_BLOCK + (BLOCKS_PER_HOUR * 6))
 
 
-    let bananaTokenInstance;
-    let bananaSplitBarInstance;
-    let masterApeInstance;
+    let treatTokenInstance;
+    let treatSplitBarInstance;
+    let masterAnimalInstance;
 
     /**
-     * Deploy BananaToken
+     * Deploy TreatToken
      */
-    deployer.deploy(BananaToken).then((instance) => {
-        bananaTokenInstance = instance;
+    deployer.deploy(TreatToken).then((instance) => {
+        treatTokenInstance = instance;
         /**
          * Mint intial tokens for liquidity pool
          */
-        return bananaTokenInstance.mint(BigNumber.from(INITIAL_MINT).mul(BigNumber.from(String(10 ** 18))));
+        return treatTokenInstance.mint(BigNumber.from(INITIAL_MINT).mul(BigNumber.from(String(10 ** 18))));
     }).then((tx) => {
         logTx(tx);
         /**
-         * Deploy BananaSplitBar
+         * Deploy TreatSplitBar
          */
-        return deployer.deploy(BananaSplitBar, BananaToken.address)
+        return deployer.deploy(TreatSplitBar, TreatToken.address)
     }).then((instance) => {
-        bananaSplitBarInstance = instance;
+        treatSplitBarInstance = instance;
         /**
-         * Deploy MasterApe
+         * Deploy MasterAnimal
          */
-        return deployer.deploy(MasterApe,
-            BananaToken.address,                                         // _banana
-            BananaSplitBar.address,                                      // _bananaSplit
+        return deployer.deploy(MasterAnimal,
+            TreatToken.address,                                         // _treat
+            TreatSplitBar.address,                                      // _treatSplit
             feeAccount,                                                   // _devaddr
-            BigNumber.from(TOKENS_PER_BLOCK).mul(BigNumber.from(String(10 ** 18))),  // _bananaPerBlock
+            BigNumber.from(TOKENS_PER_BLOCK).mul(BigNumber.from(String(10 ** 18))),  // _treatPerBlock
             REWARDS_START,                                                // _startBlock
             4                                                            // _multiplier
         )
     }).then((instance) => {
-        masterApeInstance = instance;
+        masterAnimalInstance = instance;
         /**
-         * TransferOwnership of BANANA to MasterApe
+         * TransferOwnership of TREAT to MasterAnimal
          */
-        return bananaTokenInstance.transferOwnership(MasterApe.address);
+        return treatTokenInstance.transferOwnership(MasterAnimal.address);
     }).then((tx) => {
         logTx(tx);
         /**
-         * TransferOwnership of BANANASPLIT to MasterApe
+         * TransferOwnership of TREATSPLIT to MasterAnimal
          */
-        return bananaSplitBarInstance.transferOwnership(MasterApe.address);
+        return treatSplitBarInstance.transferOwnership(MasterAnimal.address);
     }).then((tx) => {
         logTx(tx);
         /**
-         * Deploy SupportApe
+         * Deploy SupportAnimal
          */
-        return deployer.deploy(SupportApe,
-            BananaSplitBar.address,                  //_bananaSplit
+        return deployer.deploy(SupportAnimal,
+            TreatSplitBar.address,                  //_treatSplit
             BigNumber.from(TOKENS_PER_BLOCK).mul(BigNumber.from(String(10 ** 18))),                                      // _rewardPerBlock
             REWARDS_START,                            // _startBlock
             STARTING_BLOCK + (BLOCKS_PER_HOUR * 24 * 365),  // _endBlock
@@ -86,10 +86,10 @@ module.exports = async function (deployer, network, accounts) {
     }).then(() => {
         console.log('Rewards Start at block: ', REWARDS_START)
         console.table({
-            MasterApe: MasterApe.address,
-            SupportApe: SupportApe.address,
-            BananaToken: BananaToken.address,
-            BananaSplitBar: BananaSplitBar.address,
+            MasterAnimal: MasterAnimal.address,
+            SupportAnimal: SupportAnimal.address,
+            TreatToken: TreatToken.address,
+            TreatSplitBar: TreatSplitBar.address,
             MultiCall: MultiCall.address,
             Timelock: Timelock.address
         })

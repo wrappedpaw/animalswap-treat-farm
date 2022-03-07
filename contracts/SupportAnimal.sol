@@ -1,27 +1,23 @@
 pragma solidity 0.6.12;
 
 /*
- * ApeSwapFinance 
- * App:             https://apeswap.finance
- * Medium:          https://medium.com/@ape_swap    
- * Twitter:         https://twitter.com/ape_swap 
- * Telegram:        https://t.me/ape_swap
- * Announcements:   https://t.me/ape_swap_news
- * GitHub:          https://github.com/ApeSwapFinance
+ * AnimalSwapFinance 
+ * App:             https://animalswap.paw.digital
+ * GitHub:          https://github.com/wrappedpaw
  */
 
 import '@pancakeswap/pancake-swap-lib/contracts/math/SafeMath.sol';
 import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol';
 import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol';
 
-// SupportApe is the chef of new tokens. He can make yummy food and he is a fair guy as well as MasterApe.
-contract SupportApe {
+// SupportAnimal is the chef of new tokens. He can make yummy food and he is a fair guy as well as MasterAnimal.
+contract SupportAnimal {
     using SafeMath for uint256;
     using SafeBEP20 for IBEP20;
 
     // Info of each user.
     struct UserInfo {
-        uint256 amount;   // How many BANANASPLIT tokens the user has provided.
+        uint256 amount;   // How many TREATSPLIT tokens the user has provided.
         uint256 rewardDebt;  // Reward debt. See explanation below.
         uint256 rewardPending;
         //
@@ -30,7 +26,7 @@ contract SupportApe {
         //
         //   pending reward = (user.amount * pool.accRewardPerShare) - user.rewardDebt + user.rewardPending
         //
-        // Whenever a user deposits or withdraws BANANASPLIT tokens to a pool. Here's what happens:
+        // Whenever a user deposits or withdraws TREATSPLIT tokens to a pool. Here's what happens:
         //   1. The pool's `accRewardPerShare` (and `lastRewardBlock`) gets updated.
         //   2. User receives the pending reward sent to his/her address.
         //   3. User's `amount` gets updated.
@@ -44,14 +40,14 @@ contract SupportApe {
         uint256 accRewardPerShare; // Accumulated reward per share, times 1e12. See below.
     }
 
-    // The BANANASPLIT TOKEN!
+    // The TREATSPLIT TOKEN!
     IBEP20 public syrup;
     // rewards created per block.
     uint256 public rewardPerBlock;
 
     // Info.
     PoolInfo public poolInfo;
-    // Info of each user that stakes BananaSplit tokens.
+    // Info of each user that stakes TreatSplit tokens.
     mapping (address => UserInfo) public userInfo;
 
     // addresses list
@@ -67,12 +63,12 @@ contract SupportApe {
     event EmergencyWithdraw(address indexed user, uint256 amount);
 
     constructor(
-        IBEP20 _bananaSplit,
+        IBEP20 _treatSplit,
         uint256 _rewardPerBlock,
         uint256 _startBlock,
         uint256 _endBlock
     ) public {
-        syrup = _bananaSplit;
+        syrup = _treatSplit;
         rewardPerBlock = _rewardPerBlock;
         startBlock = _startBlock;
         bonusEndBlock = _endBlock;
@@ -131,7 +127,7 @@ contract SupportApe {
     }
 
 
-    // Deposit BananaSplit tokens to SupportApe for Reward allocation.
+    // Deposit TreatSplit tokens to SupportAnimal for Reward allocation.
     function deposit(uint256 _amount) public {
         require (_amount > 0, 'amount 0');
         UserInfo storage user = userInfo[msg.sender];
@@ -148,7 +144,7 @@ contract SupportApe {
         emit Deposit(msg.sender, _amount);
     }
 
-    // Withdraw BananaSplit tokens from SupportApe.
+    // Withdraw TreatSplit tokens from SupportAnimal.
     function withdraw(uint256 _amount) public {
         require (_amount > 0, 'amount 0');
         UserInfo storage user = userInfo[msg.sender];

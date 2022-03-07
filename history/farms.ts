@@ -1,5 +1,5 @@
-const BSC_MASTER_APE = 'https://bscscan.com/address/0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9#readContract'
-const POLYGON_MINI_APE = 'https://polygonscan.com/address/0x54aff400858dcac39797a81894d9920f16972d1d#readContract'
+const BSC_MASTER_ANIMAL = 'https://bscscan.com/address/0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9#readContract'
+const POLYGON_MINI_ANIMAL = 'https://polygonscan.com/address/0x54aff400858dcac39797a81894d9920f16972d1d#readContract'
 const POLYGON_MATIC_REWARDER = 'https://polygonscan.com/address/0x1f234b1b83e21cb5e2b99b4e498fe70ef2d6e3bf#readContract'
 
 interface QueueFarmDetails {
@@ -17,12 +17,12 @@ interface QueueFarmDetails {
 }
 
 /**
- * The farm is intended only for APE-LP tokens to incentivize the DEX
+ * The farm is intended only for ANIMAL-LP tokens to incentivize the DEX
  * 
  * Known Issues:
- * - CANNOT add deflationary tokens to the farm (APE-LP is not deflationary)
+ * - CANNOT add deflationary tokens to the farm (ANIMAL-LP is not deflationary)
  * - CANNOT add ERC-777 tokens to the farm as it would allow a reentrancy attack
- *    through emergencyWithdraw which could drain all the funds in that farm. (APE-LP is an ERC-20 token)
+ *    through emergencyWithdraw which could drain all the funds in that farm. (ANIMAL-LP is an ERC-20 token)
  */
 
 
@@ -974,7 +974,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 19,
-        name: 'BANANA/NAUT LP',
+        name: 'TREAT/NAUT LP',
         allocation: 0,
         address: '0xf579A6196d6CC8c2C40952Ece57345AbbD589c91',
         explorer: 'https://bscscan.com/address/0xf579A6196d6CC8c2C40952Ece57345AbbD589c91',
@@ -1006,7 +1006,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 15,
-        name: 'BANANA/GFCE LP',
+        name: 'TREAT/GFCE LP',
         allocation: 0,
         address: '0x9C87cae57f0962997d9bd66C24f3425d20543e3d',
         explorer: 'https://bscscan.com/address/0x9C87cae57f0962997d9bd66C24f3425d20543e3d',
@@ -1030,7 +1030,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 12,
-        name: 'BANANA/SUSHI LP',
+        name: 'TREAT/SUSHI LP',
         allocation: 0,
         address: '0xdbcdA7B58c2078fcc790dD7C2c7272EdB7EAa2b0',
         explorer: 'https://bscscan.com/address/0xdbcdA7B58c2078fcc790dD7C2c7272EdB7EAa2b0',
@@ -1046,7 +1046,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 10,
-        name: 'BANANA/BIFI LP',
+        name: 'TREAT/BIFI LP',
         allocation: 0,
         address: '0x2ce820319047c407cb952060Df5f7fb3D9A9a688',
         explorer: 'https://bscscan.com/address/0x2ce820319047c407cb952060Df5f7fb3D9A9a688',
@@ -1054,7 +1054,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 9,
-        name: 'BANANA/BREW LP',
+        name: 'TREAT/BREW LP',
         allocation: 0,
         address: '0x5514E0E1DA40A38E19d58e8B6E16226E16e183fA',
         explorer: 'https://bscscan.com/address/0x5514E0E1DA40A38E19d58e8B6E16226E16e183fA',
@@ -1070,7 +1070,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 7,
-        name: 'BANANA/BAKE LP',
+        name: 'TREAT/BAKE LP',
         allocation: 0,
         address: '0x51bB531A5253837A23cE8de478a4941A71A4202C',
         explorer: 'https://bscscan.com/address/0x51bB531A5253837A23cE8de478a4941A71A4202C',
@@ -1078,7 +1078,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 6,
-        name: 'BANANA/CAKE LP',
+        name: 'TREAT/CAKE LP',
         allocation: 0,
         address: '0x9949E1DB416a8a05A0cAC0bA6Ea152ba8729e893',
         explorer: 'https://bscscan.com/address/0x9949E1DB416a8a05A0cAC0bA6Ea152ba8729e893',
@@ -1110,7 +1110,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 2,
-        name: 'BANANA/BUSD LP',
+        name: 'TREAT/BUSD LP',
         allocation: 1250,
         address: '0x7Bd46f6Da97312AC2DBD1749f82E202764C0B914',
         explorer: 'https://bscscan.com/address/0x7Bd46f6Da97312AC2DBD1749f82E202764C0B914',
@@ -1118,7 +1118,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 1,
-        name: 'BANANA/BNB LP',
+        name: 'TREAT/BNB LP',
         allocation: 4000,
         address: '0xF65C1C0478eFDe3c19b49EcBE7ACc57BB6B1D713',
         explorer: 'https://bscscan.com/address/0xF65C1C0478eFDe3c19b49EcBE7ACc57BB6B1D713',
@@ -1126,7 +1126,7 @@ export const farmDetails: FarmDetails[] = [
     },
     {
         pid: 0,
-        name: 'BANANA',
+        name: 'TREAT',
         allocation: '25% of totalAllocPoint',
         address: '0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95',
         explorer: 'https://bscscan.com/address/0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95',

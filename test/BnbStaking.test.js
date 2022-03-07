@@ -1,13 +1,13 @@
 const { expectRevert, time } = require('@openzeppelin/test-helpers');
 const { assert } = require('chai');
-const BananaToken = artifacts.require('BananaToken');
+const TreatToken = artifacts.require('TreatToken');
 const BnbStaking = artifacts.require('BnbStaking');
 const MockBEP20 = artifacts.require('libs/MockBEP20');
 const WBNB = artifacts.require('libs/WBNB');
 
 contract('BnbStaking.......', async ([alice, bob, admin, dev, minter]) => {
   beforeEach(async () => {
-    this.rewardToken = await BananaToken.new({ from: minter });
+    this.rewardToken = await TreatToken.new({ from: minter });
     this.lpToken = await MockBEP20.new('LPToken', 'LP1', '1000000', {
       from: minter,
     });

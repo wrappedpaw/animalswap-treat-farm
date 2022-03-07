@@ -1,4 +1,4 @@
-const BEP20RewardApeV2 = artifacts.require("BEP20RewardApeV2");
+const BEP20RewardAnimalV2 = artifacts.require("BEP20RewardAnimalV2");
 
 
 const deployConfigs = [
@@ -33,16 +33,16 @@ module.exports = async function(deployer, network, accounts) {
     for (const deployConfig of deployConfigs) {
         const { name, stakeToken, rewardToken, rewardPerBlock, startBlock, bonusEndBlock } = deployConfig;
     
-        console.log("Deploying BEP20RewardApe with config:");
+        console.log("Deploying BEP20RewardAnimal with config:");
         console.dir(deployConfig);
     
-        await deployer.deploy(BEP20RewardApeV2, stakeToken, rewardToken, rewardPerBlock, startBlock, bonusEndBlock);
-        const bep20RewardApe = await BEP20RewardApeV2.deployed();
-        await bep20RewardApe.transferOwnership(adminAddress);
+        await deployer.deploy(BEP20RewardAnimalV2, stakeToken, rewardToken, rewardPerBlock, startBlock, bonusEndBlock);
+        const bep20RewardAnimal = await BEP20RewardAnimalV2.deployed();
+        await bep20RewardAnimal.transferOwnership(adminAddress);
 
         deployLogs.push({
             name,
-            address: BEP20RewardApeV2.address,
+            address: BEP20RewardAnimalV2.address,
             stakeToken,
             rewardToken,
             rewardPerBlock,

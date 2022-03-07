@@ -1,10 +1,10 @@
 const { expectRevert, time } = require('@openzeppelin/test-helpers');
 const ethers = require('ethers');
-const BananaToken = artifacts.require('BananaToken');
-const MasterApe = artifacts.require('MasterApe');
+const TreatToken = artifacts.require('TreatToken');
+const MasterAnimal = artifacts.require('MasterAnimal');
 const MockBEP20 = artifacts.require('libs/MockBEP20');
 const Timelock = artifacts.require('Timelock');
-const BananaSplitBar = artifacts.require('BananaSplitBar');
+const TreatSplitBar = artifacts.require('TreatSplitBar');
 
 function encodeParameters(types, values) {
     const abi = new ethers.utils.AbiCoder();
@@ -13,7 +13,7 @@ function encodeParameters(types, values) {
 
 contract('Timelock', ([alice, bob, carol, dev, minter]) => {
     beforeEach(async () => {
-        this.cake = await BananaToken.new({ from: alice });
+        this.cake = await TreatToken.new({ from: alice });
         this.timelock = await Timelock.new(bob, '28800', { from: alice }); //8hours
     });
 
@@ -61,11 +61,11 @@ contract('Timelock', ([alice, bob, carol, dev, minter]) => {
         assert.equal((await this.cake.owner()).valueOf(), carol);
     });
 
-    it('should also work with MasterApe', async () => {
+    it('should also work with MasterAnimal', async () => {
         this.lp1 = await MockBEP20.new('LPToken', 'LP', '10000000000', { from: minter });
         this.lp2 = await MockBEP20.new('LPToken', 'LP', '10000000000', { from: minter });
-        this.syrup = await BananaSplitBar.new(this.cake.address, { from: minter });
-        this.chef = await MasterApe.new(this.cake.address, this.syrup.address, dev, '1000', '0', { from: alice });
+        this.syrup = await TreatSplitBar.new(this.cake.address, { from: minter });
+        this.chef = await MasterAnimal.new(this.cake.address, this.syrup.address, dev, '1000', '0', { from: alice });
         await this.cake.transferOwnership(this.chef.address, { from: alice });
         await this.syrup.transferOwnership(this.chef.address, { from: minter });
         await this.chef.add('100', this.lp1.address, true, { from: alice });

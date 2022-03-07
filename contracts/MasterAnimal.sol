@@ -1,13 +1,9 @@
 pragma solidity 0.6.12;
 
 /*
- * ApeSwapFinance 
- * App:             https://apeswap.finance
- * Medium:          https://medium.com/@ape_swap    
- * Twitter:         https://twitter.com/ape_swap 
- * Telegram:        https://t.me/ape_swap
- * Announcements:   https://t.me/ape_swap_news
- * GitHub:          https://github.com/ApeSwapFinance
+ * AnimalSwapFinance 
+ * App:             https://animalswap.paw.digital
+ * GitHub:          https://github.com/wrappedpaw
  */
 
 import '@pancakeswap/pancake-swap-lib/contracts/math/SafeMath.sol';
@@ -15,20 +11,20 @@ import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol';
 import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol';
 import '@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol';
 
-import "./BananaToken.sol";
-import "./BananaSplitBar.sol";
+import "./TreatToken.sol";
+import "./TreatSplitBar.sol";
 
 // import "@nomiclabs/buidler/console.sol";
 
-// MasterApe is the master of BANANA AND BANANASPLIT. 
-// He can make Banana and he is a fair guy.
+// MasterAnimal is the master of TREAT AND TREATSPLIT. 
+// He can make Treat and he is a fair guy.
 //
 // Note that it's ownable and the owner wields tremendous power. The ownership
-// will be transferred to a governance smart contract once BANANA is sufficiently
+// will be transferred to a governance smart contract once TREAT is sufficiently
 // distributed and the community can show to govern itself.
 //
 // Have fun reading it. Hopefully it's bug-free. God bless.
-contract MasterApe is Ownable {
+contract MasterAnimal is Ownable {
     using SafeMath for uint256;
     using SafeBEP20 for IBEP20;
 
@@ -37,10 +33,10 @@ contract MasterApe is Ownable {
         uint256 amount;     // How many LP tokens the user has provided.
         uint256 rewardDebt; // Reward debt. See explanation below.
         //
-        // We do some fancy math here. Basically, any point in time, the amount of BANANAs
+        // We do some fancy math here. Basically, any point in time, the amount of TREATs
         // entitled to a user but is pending to be distributed is:
         //
-        //   pending reward = (user.amount * pool.accBananaPerShare) - user.rewardDebt
+        //   pending reward = (user.amount * pool.accTreatPerShare) - user.rewardDebt
         //
         // Whenever a user deposits or withdraws LP tokens to a pool. Here's what happens:
         //   1. The pool's `accCakePerShare` (and `lastRewardBlock`) gets updated.
@@ -52,20 +48,20 @@ contract MasterApe is Ownable {
     // Info of each pool.
     struct PoolInfo {
         IBEP20 lpToken;           // Address of LP token contract.
-        uint256 allocPoint;       // How many allocation points assigned to this pool. BANANAs to distribute per block.
-        uint256 lastRewardBlock;  // Last block number that BANANAs distribution occurs.
-        uint256 accCakePerShare; // Accumulated BANANAs per share, times 1e12. See below.
+        uint256 allocPoint;       // How many allocation points assigned to this pool. TREATs to distribute per block.
+        uint256 lastRewardBlock;  // Last block number that TREATs distribution occurs.
+        uint256 accCakePerShare; // Accumulated TREATs per share, times 1e12. See below.
     }
 
-    // The BANANA TOKEN!
-    BananaToken public cake;
-    // The BANANA SPLIT TOKEN!
-    BananaSplitBar public syrup;
+    // The TREAT TOKEN!
+    TreatToken public cake;
+    // The TREAT SPLIT TOKEN!
+    TreatSplitBar public syrup;
     // Dev address.
     address public devaddr;
-    // BANANA tokens created per block.
+    // TREAT tokens created per block.
     uint256 public cakePerBlock;
-    // Bonus muliplier for early banana makers.
+    // Bonus muliplier for early treat makers.
     uint256 public BONUS_MULTIPLIER;
 
 
@@ -75,7 +71,7 @@ contract MasterApe is Ownable {
     mapping (uint256 => mapping (address => UserInfo)) public userInfo;
     // Total allocation points. Must be the sum of all allocation points in all pools.
     uint256 public totalAllocPoint = 0;
-    // The block number when BANANA mining starts.
+    // The block number when TREAT mining starts.
     uint256 public startBlock;
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
@@ -83,23 +79,23 @@ contract MasterApe is Ownable {
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
 
     constructor(
-        BananaToken _banana,
-        BananaSplitBar _bananaSplit,
+        TreatToken _treat,
+        TreatSplitBar _treatSplit,
         address _devaddr,
-        uint256 _bananaPerBlock,
+        uint256 _treatPerBlock,
         uint256 _startBlock,
         uint256 _multiplier
     ) public {
-        cake = _banana;
-        syrup = _bananaSplit;
+        cake = _treat;
+        syrup = _treatSplit;
         devaddr = _devaddr;
-        cakePerBlock = _bananaPerBlock;
+        cakePerBlock = _treatPerBlock;
         startBlock = _startBlock;
         BONUS_MULTIPLIER = _multiplier;
 
         // staking pool
         poolInfo.push(PoolInfo({
-            lpToken: _banana,
+            lpToken: _treat,
             allocPoint: 1000,
             lastRewardBlock: startBlock,
             accCakePerShare: 0
@@ -148,7 +144,7 @@ contract MasterApe is Ownable {
         updateStakingPool();
     }
 
-    // Update the given pool's BANANA allocation point. Can only be called by the owner.
+    // Update the given pool's TREAT allocation point. Can only be called by the owner.
     function set(uint256 _pid, uint256 _allocPoint, bool _withUpdate) public onlyOwner {
         if (_withUpdate) {
             massUpdatePools();
@@ -179,7 +175,7 @@ contract MasterApe is Ownable {
         return _to.sub(_from).mul(BONUS_MULTIPLIER);
     }
 
-    // View function to see pending BANANAs on frontend.
+    // View function to see pending TREATs on frontend.
     function pendingCake(uint256 _pid, address _user) external view returns (uint256) {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][_user];
@@ -221,10 +217,10 @@ contract MasterApe is Ownable {
         pool.lastRewardBlock = block.number;
     }
 
-    // Deposit LP tokens to MasterApe for BANANA allocation.
+    // Deposit LP tokens to MasterAnimal for TREAT allocation.
     function deposit(uint256 _pid, uint256 _amount) public validatePool(_pid) {
 
-        require (_pid != 0, 'deposit BANANA by staking');
+        require (_pid != 0, 'deposit TREAT by staking');
 
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
@@ -243,9 +239,9 @@ contract MasterApe is Ownable {
         emit Deposit(msg.sender, _pid, _amount);
     }
 
-    // Withdraw LP tokens from MasterApe.
+    // Withdraw LP tokens from MasterAnimal.
     function withdraw(uint256 _pid, uint256 _amount) public validatePool(_pid) {
-        require (_pid != 0, 'withdraw BANANA by unstaking');
+        require (_pid != 0, 'withdraw TREAT by unstaking');
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
         require(user.amount >= _amount, "withdraw: not good");
@@ -263,7 +259,7 @@ contract MasterApe is Ownable {
         emit Withdraw(msg.sender, _pid, _amount);
     }
 
-    // Stake BANANA tokens to MasterApe
+    // Stake TREAT tokens to MasterAnimal
     function enterStaking(uint256 _amount) public {
         PoolInfo storage pool = poolInfo[0];
         UserInfo storage user = userInfo[0][msg.sender];
@@ -284,7 +280,7 @@ contract MasterApe is Ownable {
         emit Deposit(msg.sender, 0, _amount);
     }
 
-    // Withdraw BANANA tokens from STAKING.
+    // Withdraw TREAT tokens from STAKING.
     function leaveStaking(uint256 _amount) public {
         PoolInfo storage pool = poolInfo[0];
         UserInfo storage user = userInfo[0][msg.sender];
@@ -322,7 +318,7 @@ contract MasterApe is Ownable {
             poolInfo[_pid].accCakePerShare);
     }
 
-    // Safe cake transfer function, just in case if rounding error causes pool to not have enough BANANAs.
+    // Safe cake transfer function, just in case if rounding error causes pool to not have enough TREATs.
     function safeCakeTransfer(address _to, uint256 _amount) internal {
         syrup.safeCakeTransfer(_to, _amount);
     }

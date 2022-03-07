@@ -1,17 +1,17 @@
 const { expectRevert, time } = require('@openzeppelin/test-helpers');
-const BananaToken = artifacts.require('BananaToken');
-const BananaSplitBar = artifacts.require('BananaSplitBar');
-const MasterApe = artifacts.require('MasterApe');
+const TreatToken = artifacts.require('TreatToken');
+const TreatSplitBar = artifacts.require('TreatSplitBar');
+const MasterAnimal = artifacts.require('MasterAnimal');
 const MockBEP20 = artifacts.require('libs/MockBEP20');
 
-contract('MasterApe', ([alice, bob, carol, dev, minter]) => {
+contract('MasterAnimal', ([alice, bob, carol, dev, minter]) => {
     beforeEach(async () => {
-        this.cake = await BananaToken.new({ from: minter });
-        this.syrup = await BananaSplitBar.new(this.cake.address, { from: minter });
+        this.cake = await TreatToken.new({ from: minter });
+        this.syrup = await TreatSplitBar.new(this.cake.address, { from: minter });
         this.lp1 = await MockBEP20.new('LPToken', 'LP1', '1000000', { from: minter });
         this.lp2 = await MockBEP20.new('LPToken', 'LP2', '1000000', { from: minter });
         this.lp3 = await MockBEP20.new('LPToken', 'LP3', '1000000', { from: minter });
-        this.chef = await MasterApe.new(this.cake.address, this.syrup.address, dev, '1000', '100', { from: minter });
+        this.chef = await MasterAnimal.new(this.cake.address, this.syrup.address, dev, '1000', '100', { from: minter });
         await this.cake.transferOwnership(this.chef.address, { from: minter });
         await this.syrup.transferOwnership(this.chef.address, { from: minter });
 

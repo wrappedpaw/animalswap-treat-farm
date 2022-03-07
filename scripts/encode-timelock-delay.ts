@@ -77,9 +77,9 @@ const encode = async () => {
             queueTx: "",
             executeTx: "",
             cancelTx: "",
-            masterApeTXEncodeFunction: method,
-            masterApeArgs: timelockArgs,
-            masterApeTXEncoded: encodedTx,
+            masterAnimalTXEncodeFunction: method,
+            masterAnimalArgs: timelockArgs,
+            masterAnimalTXEncoded: encodedTx,
             timelockQueueEncoded,
             timelockExecuteEncoded,
             timelockCancelEncoded

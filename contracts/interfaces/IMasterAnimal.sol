@@ -2,15 +2,12 @@ pragma experimental ABIEncoderV2;
 pragma solidity 0.6.12;
 
 /*
- * ApeSwapFinance 
- * App:      https://apeswap.finance
- * Medium:   https://medium.com/@ape_swap    
- * Twitter:  https://twitter.com/ape_swap 
- * Telegram: https://t.me/ape_swap
- * GitHub:   https://github.com/ApeSwapFinance
+ * AnimalSwapFinance 
+ * App:             https://animalswap.paw.digital
+ * GitHub:          https://github.com/wrappedpaw
  */
 
-interface IMasterApe {
+interface IMasterAnimal {
     function transferOwnership(address newOwner) external; // from Ownable.sol
     function updateMultiplier(uint256 multiplierNumber) external; // onlyOwner
     function add(uint256 _allocPoint, address _lpToken, bool _withUpdate) external; // onlyOwner
